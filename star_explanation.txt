@@ -1,38 +1,35 @@
-Situation
+Situation:
+    In machine learning, frameworks like PyTorch and TensorFlow automate differentiation and backpropagation, but their abstraction often hides the underlying mechanics. To deepen my understanding of gradient-based optimization and backpropagation, I undertook the task of designing and implementing a **custom Autograd Engine** from scratch.
 
-In machine learning, frameworks like PyTorch and TensorFlow automate differentiation and backpropagation, but their abstraction often hides the underlying mechanics. To deepen my understanding of gradient-based optimization and backpropagation, I undertook the task of designing and implementing a **custom Autograd Engine** from scratch.
+Task:
+    The objective was to create a modular and dynamic autograd engine capable of:
 
-Task
+        1. Dynamic Computational Graph Creation:** Recording operations during the forward pass.
 
-The objective was to create a modular and dynamic autograd engine capable of:
+        2. Backpropagation:** Traversing the computational graph in reverse to compute gradients.
 
-    1. Dynamic Computational Graph Creation:** Recording operations during the forward pass.
+        3. Gradient-Based Optimization:** Enabling parameter updates using optimizers like Stochastic Gradient Descent (SGD).
 
-    2. Backpropagation:** Traversing the computational graph in reverse to compute gradients.
+        4. Visualization Tools:** Providing insights through metrics like training loss and gradient flow.
 
-    3. Gradient-Based Optimization:** Enabling parameter updates using optimizers like Stochastic Gradient Descent (SGD).
+    This required not only implementing the core functionality but also validating its correctness and benchmarking it against established frameworks like PyTorch.
 
-    4. Visualization Tools:** Providing insights through metrics like training loss and gradient flow.
+Action:
+    1. Tensor Implementation:
+        • Designed a Tensor class to encapsulate data, gradients, and operation history.
+        • Integrated support for mathematical operations (e.g., addition, multiplication) that dynamically linked tensors in a computational graph.
 
-This required not only implementing the core functionality but also validating its correctness and benchmarking it against established frameworks like PyTorch.
+    2. Backpropagation Logic:
+        • Implemented a recursive backward() method that computed gradients using the chain rule.
+        • Designed modular operations like Add, Mul, and MatMul, ensuring compatibility with the autograd system.
 
-Action
+    3. Optimization Framework:
+        • Developed an SGD optimizer to update model parameters based on computed gradients.
+        • Added optional support for regularization to mitigate overfitting.
 
-1. Tensor Implementation:
-    • Designed a Tensor class to encapsulate data, gradients, and operation history.
-    • Integrated support for mathematical operations (e.g., addition, multiplication) that dynamically linked tensors in a computational graph.
-
-2. Backpropagation Logic:
-    • Implemented a recursive backward() method that computed gradients using the chain rule.
-    • Designed modular operations like Add, Mul, and MatMul, ensuring compatibility with the autograd system.
-
-3. Optimization Framework:
-    • Developed an SGD optimizer to update model parameters based on computed gradients.
-    • Added optional support for regularization to mitigate overfitting.
-
-4. Results Visualization:
-    • Plotted training loss and gradient flow during training to validate the engine’s functionality.
-    • Compared performance metrics (execution time and loss convergence) with PyTorch to identify areas for improvement.
+    4. Results Visualization:
+        • Plotted training loss and gradient flow during training to validate the engine’s functionality.
+        • Compared performance metrics (execution time and loss convergence) with PyTorch to identify areas for improvement.
 
 Result
 
@@ -42,4 +39,3 @@ Result
     • Achieved comparable **loss convergence** despite a slight performance gap (execution time: 5.72 seconds vs. 3.38 seconds for PyTorch).
     • Enhanced my understanding of **backpropagation** and the mechanics of machine learning frameworks, providing a strong foundation for future projects.
 
-This STAR framework highlights the technical and analytical depth of your project while clearly showcasing the outcomes and the skills you applied.
